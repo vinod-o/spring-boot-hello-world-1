@@ -13,6 +13,7 @@ pipeline{
         stage('build'){
             steps{
                 echo 'Build the application'
+                sh "mvn clean  "
             }
         }
         stage('SonarQubeAnalysis'){
