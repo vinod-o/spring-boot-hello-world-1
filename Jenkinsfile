@@ -17,7 +17,7 @@ pipeline{
         }
         stage('SonarQubeAnalysis'){
             steps{
-                WithSonarQubeEnv("${SONAR_SERVER}") {
+                withSonarQubeEnv("${SONAR_SERVER}") {
                     sh """
                         mvn sonar:scanner \
                         -Dsonar.host.url = http://52.91.111.127:9000 \
