@@ -20,8 +20,8 @@ pipeline{
                 withSonarQubeEnv("${SONAR_SERVER}") {
                     sh """
                         mvn sonar:sonar \
-                        -Dsonar.host.url = http://52.91.111.127:9000 \
-                        -Dsonar.login = $SONAR_AUTH_TOKEN
+                        -Dsonar.host.url=http://52.91.111.127:9000 \
+                        -Dsonar.login=$SONAR_AUTH_TOKEN
                         """
                      
                 }
