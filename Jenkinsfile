@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    tools{
-        sonarScanner 'SonarScanner'
-    }
     environment{
         SONAR_SERVER = 'SonarQube'
     }
@@ -22,7 +19,7 @@ pipeline{
             steps{
                 WithSonarQubeEnv("${SONAR_SERVER}") {
                     sh """
-                        sonar-scanner \
+                        mvn sonar:scanner \
                         -Dsonar.host.url = http://52.91.111.127:9000 \
                         -Dsonar.login = $SONAR_AUTH_TOKEN
                         """
