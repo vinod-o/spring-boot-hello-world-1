@@ -9,7 +9,23 @@ jobs:
     steps:
       - name: checkout the code
         uses: actions/checkout@v4
-      - name: execute shell cmd
-        run: echo "Hello-World!"
+      - name: setup JAVA 
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: build and verify
+        run: mvn clean verify 
+      - name: sonarqube analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_URL: ${{ vars.SONARR_URL }}
+        run: |
+          mvn sonar:sonar \
+           -Dsonar.host.url=$SONAR_URL \
+           -Dsonar.token=$SONAR_TOKEN 
+           
+          
+          
         
       
