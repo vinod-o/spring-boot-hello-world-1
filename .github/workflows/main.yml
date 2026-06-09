@@ -1,0 +1,15 @@
+name: ci-pipeline
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-sast:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
+      - name: execute shell cmd
+        run: echo "Hello-World!"
+        
+      
