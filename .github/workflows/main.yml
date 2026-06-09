@@ -19,7 +19,7 @@ jobs:
       - name: sonarqube analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_URL: ${{ vars.SONARR_URL }}
+          SONAR_URL: ${{ vars.SONAR_URL }}
         run: |
           mvn sonar:sonar \
            -Dsonar.host.url=$SONAR_URL \
